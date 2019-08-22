@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--This is the title that appears at the top of the page-->
+  <title>Computing Home</title>
+  <!--Sets the character encoding for the page-->
+  <meta charset="UTF-8">
+  <!--The links to my CSS files go here-->
+  <link rel="stylesheet" href="grid.css"/>
+  <link rel="stylesheet" href="stylesheet.css"/>
+  <!--Links to the javascript files go here-->
+  <script src="jquery.min.js"></script>
+  <!--This is the users visible area of the website-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+  <!--SCRIPT START-->
+  <!--This JavaScript brings up a pop up box to ask the user for their name-->
+  <script>
+    //when the document is ready
+    $(document).on('ready', function myFunction(){
+    //ask the person for their name in a text box
+    var person = prompt("Please enter your name here: ");
+    //if the text box has something (not empty) in it
+    if (person != ""){
+      //search for the element with the id 'name' and add what was in the text box into it
+      document.getElementById("name").innerHTML =  person;
+      }else{
+      //if the text box is empty produce an alert asking the user for their name
+      alert("You did not enter your name.");
+      //re run this function
+      myFunction();
+      }
+    });
+  </script>
+<!--START OF MAIN HTML CONTENT-->
+  <header>
+    <!--row for the header contents-->
+    <div id="black" class="row">
+      <!--first column contains an image for the mobile version, but is hidden for the desktop-->
+      <div class="column small-2 large-hidden notbig">
+        <!--an image of the uni crest-->
+        <img id="crest" src="Images/Crest.png" alt="Edge Hill Crest Image">
+      </div>
+      <!--a column created to add space for the title-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column for the title of the page-->
+      <div class="column small-8 large-8">
+        <!--links the title to the index.html-->
+        <a href="index.html">
+          <!--an image of the edge hill title-->
+          <img id="title" src="Images/EdgeHillTitle.jpg" alt="Edge Hill Title Image">
+        </a>
+      </div>
+      <!--NAVIGATION-->
+      <!--I added a nav bar to the first page because it fits the style of the other two pages, and it seemed counter intuitive to not have this same system on the index page. So now the user could use this system, or the system that is a part of the main content-->
+      <div class="column small-6 large-1">
+            <!--The link makes the div seem like a button so the user knows to click it-->
+            <a class="imgA" href="department.html">   
+               <div class="nav navBig navSmall denav">
+                  <p>Department</p>
+               </div>
+            </a>
+         </div>
+          <div class="column small-6 large-1">
+            <!--The link makes the div seem like a button so the user knows to click it-->
+            <a class="imgA" href="degree.html">
+               <div class="nav navBig navSmall denav">
+                  <p>Degree</p>
+               </div>
+            </a>
+         </div>
+    </div>
+  </header>
+  <!--MAIN CONTENT OF THE PAGE-->
+  <!--new row div for the main content on the page-->
+  <div class="row">
+    <!--a column that displays a picture the full width of the page in mobile version, but is hidden on the desktop version-->
+    <div class="column small-12 large-hidden">
+      <img id="smallTechub" src="Images/TechHub.png" alt="Tech Hub Image">
+    </div>
+  </div>
+  <!--new row class that has an image as the background if it is desktop version, but not if it is mobile version-->
+  <div class="backgroundTechhub noBackgroundTechhub row">
+    <!--column to add space-->
+    <div class="column small-1 large-1">
+      &nbsp;
+    </div>
+    <!--a column that is white and holds the main text content for this page-->
+    <div id="textBox" class="column small-10 large-4">
+      <!--two heading elements, one that is plain text, and the other is empty to allow the user's name to be pasted-->
+      <h1 class="mainH">Welcome to Computing at Edge Hill University </h1><h1 id="name" class="mainH"></h1>
+      <!--paragraph content of the textbox-->
+      <p>A degree with computing will give you the skills and know-how to proceed onto the next step in life and attaining the opportunities available in this 'digital age'. Here, you will be learning how to produce and develop technologies, alongside making the most use out of technologies that already exist. We offer you the opportunities to choose what you would like to specialise in, and the pathways you would like to move into. Teaching and learning techniques, as well as staff who constantly offer support and have won awards for excellence, give an upbeat and enjoyable, but effective learning environment. Learning to work as part of a team on real-life projects using leading-edge resources and industry-standard software will enable you to develop a breadth of practical and communication skills and give you an excellent skill set to pursue a wide range of careers with a distinct workplace advantage. Dont just take it from us, here are some reviews from our alumni.</p>
+      <h2><u>James Hubbard (BSc (Hons) Computing)</u></h2> 
+      <blockquote><i>"I decided to become a student blogger to help develop my communication skills with others, to interact with those thinking about coming to Edge Hill and to represent the university."</i></blockquote>
+      <h2><u>Nicholas Turner (BSc (Hons) Computing)</u></h2>
+      <blockquote><i>"Using real-life settings is very different to working on case studies and I find communicating with clients, implementing their requirements and knowing that a system I am working on will be used by thousands of people is very rewarding."</i></blockquote>
+      <h2><u>Carl Glennon (BSc (Hons) Computing)</u></h2>
+      <blockquote><i>"I do think that the diverse approach of my course, combined with the real-life projects we get to work on, provides you with a solid foundation in all the core software and IT areas."</i></blockquote>
+    </div>
+    <!--another column to add space between the textbox and buttons-->
+    <div class="column small-hidden large-1">
+      &nbsp;
+    </div>
+    <!--a column to hold the buttons-->
+    <div class="column small-12 large-5">
+      <!--a nested row to hold the top button-->
+      <div class="row">
+        <!--a column so the smaller version has space for the button-->
+        <div class="column small-1 large-hidden">
+          &nbsp;
+        </div>
+        <!--a link to department.html so the button can be clicked and will take the user to that page-->
+        <a href="department.html">
+          <div class="column small-11 large-12 button button-top">
+            <!--heading text within the button-->
+            <h1 class="dark">To find out more about the computing department and the teachers, click here!</h1>
+          </div>
+        </a>
+      </div>
+      <!-- another row for the next button-->
+      <div class="row">
+        <!--another column for space on the small version-->
+        <div class="column small-1 large-hidden">
+          &nbsp;
+        </div>
+        <!--another link to degree.html so the button can be clicked and will take the user to that page-->
+        <a  href="degree.html">
+          <div class="column small-11 large-12 button button-bottom">
+            <!--heading text within the button-->
+            <h1 class="dark">To find out more about your module choices and degree here at Edge Hill, click here!</h1>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--CONTENT FOR THE FOOTER-->
+  <footer>
+    <!--a row to hold the footer content-->
+    <div class=row>
+      <!--space at the start of the header-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column to hold the contact details-->
+      <div class="column small-11 large-8">
+        <!--a p element with line breaks so that the text groups nicely-->
+        <p class="footerText">Contact<br/>
+        Edge Hill University<br/>
+        St Helens Road<br/>
+        Ormskirk<br/>
+        Lancashire<br/>
+        L39 4QP<br/>
+        United Kingdom<br/>
+        +44(0)1695 575171</p>
+      </div>
+      <!--another column to hold the images that link to facebook-->
+      <div class="column small-hidden large-3">
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.facebook.com/edgehilluniversity" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/FacebookSymbol.jpg" onmouseover="this.src='Images/FacebookSymbolHover.jpg'" onmouseout="this.src='Images/FacebookSymbol.jpg'" alt="Facebook Symbol Image">
+        </a>
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.instagram.com/edgehilluniversity/" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/instagramSymbol.jpg" onmouseover="this.src='Images/instagramSymbolHover.jpg'" onmouseout="this.src='Images/instagramSymbol.jpg'" alt="Instagram Symbol Image">
+        </a>
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://twitter.com/edgehill" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/twitterSymbol.jpg" onmouseover="this.src='Images/twitterSymbolHover.jpg'" onmouseout="this.src='Images/twitterSymbol.jpg'" alt="Twitter Symbol Image">
+        </a> 
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.youtube.com/c/edgehilluniversity?sub_confirmation=1" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/youtubeSymbol.jpg" onmouseover="this.src='Images/youtubeSymbolHover.jpg'" onmouseout="this.src='Images/youtubeSymbol.jpg'" alt="YouTube Symbol Image">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

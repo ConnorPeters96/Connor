@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!--This is the title that appears at the top of the page-->
+   <title>Computing Department</title>
+   <!--Sets the character encoding for the page-->
+	<meta charset="UTF-8">
+   <!--The links to my CSS files go here-->
+   <link rel="stylesheet" href="grid.css"/>
+   <link rel="stylesheet" href="stylesheet.css"/>
+   <!--Links to the javascript files go here-->
+   <script src="jquery.min.js"></script>
+   <script src="details.js"></script>
+   <!--This is the users visible area of the website-->
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body class="backShade">
+   <!--START OF MAIN HTML CONTENT-->
+   <header>
+      <!--row for the header contents-->
+      <div id="black" class="row">
+         <!--first column contains an image for the mobile version, but is hidden for the desktop-->
+         <div class="column small-2 large-hidden notbig">
+            <!--an image of the uni crest-->
+            <img id="crest" src="Images/Crest.png" alt="Edge Hill Crest Image">
+         </div>
+         <!--a column created to add space for the title-->
+         <div class="column small-1 large-1">
+            &nbsp;
+         </div>
+         <!--a column for the title of the page-->
+         <div class="column small-8 large-8">
+            <!--links the title to the index.html-->
+            <a href="index.html">
+               <!--an image of the edge hill title-->
+               <img id="title" src="Images/EdgeHillTitle.jpg" alt="Edge Hill Title Image">
+            </a>
+         </div>
+         <!--a div to fit at the end of the page-->
+         <div class="column small-6 large-1">
+            <!--A link element around a div which makes the div seem like a button. it is linked to the home page so when a user clicks it, it takes them back-->
+            <a class="imgA" href="index.html">   
+               <!--a div containing Home to tell the user that the link goes back to the home page-->
+               <div class="nav navBig navSmall homenav">
+                  <p>Home</p>
+               </div>
+            </a>
+         </div>
+         <!--a div next to the last at the end of the page-->
+         <div class="column small-6 large-1">
+            <!--A link element around a div which makes the div seem like a button. it is linked to the degree page so when a user clicks it, it takes them there-->
+            <a class="imgA" href="degree.html">
+               <!--a div containing Degree to tell the user that the link continues to the next page 'degree'-->
+               <div class="nav navBig navSmall denav">
+                  <p>Degree</p>
+               </div>
+            </a>
+         </div>
+      </div>
+   </header>
+   <!--START OF THE MAIN PAGE CONTENT-->
+   <!--a div to hold the entire content of the page. this iks here because the background of the page fades to grey, and the black text becomes difficult to see so this is a platform 'above' the background which stands out and holds all of the content-->
+   <div class="row contentHolderBig contentHolderSmall">
+      <!--a row to hold the main paragraph and title of the page-->
+      <div class="row">
+         <!--collumn reaching across the entire page that holds the title and main paragraph-->
+         <div class="column small-12 large-12 smallL">
+            <h1>Learning Environment and Activities</h1>
+            <p>The Department of Computer Science is based in the state-of-the-art &pound; 13m Technology Hub. This purpose-built development offers highly contemporary suites of outstanding facilities for Computer Science students. Our modern computer laboratories are equipped with high-specification computers, high-resolution screens and the latest hardware and software. There is a four-screen CAVE (Computer Augmented Virtual Environment) provides a super immersive 3D virtual environment, enabling users to immerse themselves in a virtual room and experience real life scenarios in 4K resolution. There are also specialist laboratories for networking and games programming, in addition to a specialist research laboratory, open access laboratory, a Harvard style lecture theatre, and 'The Hatchery', a working space for new business ideas.</p>
+            <p>Learning resources include a programmable child-sized robot, wired and wireless networking hardware, graphics software, web development tools, software development environments, big data servers, giant 3D interactive teaching screens, and other specialist software required for studying forensics and internet security techniques. The department has strong links with industry and the curriculum is kept current and highly relevant through input from our Employer Advisory Panel. A dedicated Enterprise Projects Team and Web Factory social enterprise initiative recruit students to paid work on a range of commercial projects. This provides you with the opportunity to gain experience in a commercial environment. You will also be actively supported in developing solutions for local businesses through your coursework.</p>
+            <p>There are competitions including 'University Technology Challenge' and 'Hackathon', organised in collaboration with companies such as Barclays, the BBC and Talk Talk, allow you to show invention and initiative through, for example, inventing new apps and presenting a business case in a highly competitive environment. There is also an annual employability conference and specialist careers fair prepare you for employment. You can also engage with research through the 'INSPIRE' initiative, with some of our students having papers published at international conferences. </p>
+         </div>
+      </div>
+      <!--new row for the image-->
+      <div class="row">
+         <!--a column with nothing in to buffer before the image-->
+         <div class="column small-hidden large-3">
+            &nbsp;
+         </div>
+         <!--a column 6 accross on the desktop version and hidden in the mobile version, containing the image-->
+         <div class="column small-hidden large-6">
+            <img class="deptRight" src="Images/techubOutside.jpg" alt="Tech hub Outside Image">
+         </div>
+      </div>
+      <!--a row containing the next big set of text-->
+      <div class="row">
+         <!--A column reaching all the way accross the page containing the next large bit of information-->
+         <div class="column small-12 large-12 smallL">
+            <h1>Teaching within the department</h1>
+            <!--I had planned to make this aligned to the right, but when i actually implemented this, it looked really bad  and the information was difficult to read, so i kept it left aligned.-->
+            <p>Teaching methods are designed in consultation with leading employers in the region. Many classes are based in computer workshops, focusing on student activity as a means of learning. We introduce theoretical concepts by building on concrete practical activity. You will be given opportunities to work together and develop the essential people skills to complement your technical skills. Also, during Year 2 you will complete an employability module which will enhance your developing skills and confidence to assist you in acquiring short and long term employment.</p>
+            <p>You will be taught by staff who are passionate about student learning and development. The programme team are specialists in computing and active researchers in areas including mobile computing, distributed systems, e-commerce, web information architecture, visualisation and applications of problem-based learning in computing and information systems. Academic staff are regular contributors to academic conferences and journals.</p>
+            <ul>
+               <li>Computing at Edge Hill University ranked in the top two in the North West for overall satisfaction in the National Student Survey 2016;</li>
+               <li>Develop valuable employability skills and experience during Year 2, with the additional option of undertaking a year out in industry before your final year; </li>
+               <li>Accredited by BCS, The Chartered Institute for IT, for the purposes of fully meeting the academic requirement for registration as a Chartered IT Professional. </li>
+            </ul>
+         </div>
+      </div>
+      <!--A row for the next image-->
+      <div class="row">
+         <!--An empty column hidden in the desktop version to buffer the image-->
+         <div class="column small-1 large-hidden">
+            &nbsp;
+         </div>
+         <!--a div containing An image on the hidden on the desktop version of the outside of the tech hub-->
+         <div class="column small-12 large-hidden">
+            <img class="deptRight" src="Images/techubOutside.jpg" alt="Tech hub Outside Image">
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <!--a column to make some space-->
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <!--a column containing the information for the teacher-->
+         <div class="column small-10 large-6 deptGrid">
+            <!--the row that has been slightly indented for the information-->
+            <div class="row">
+               <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/ColletteFace.jpg" alt="Teacher Face Collette">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Collette Gavan</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Director of Undergraduate Studies</p>
+                     <p class="boxMarg">Senior Lecturer & Programme Leader for BSc (Hons) Computing</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+            <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/MarkHallFace.jpg" alt="Teacher Face MarkH">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Dr. Mark Hall</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Senior Lecturer & Modeling Research Theme Leader</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+               <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/ChitraFace.jpg" alt="Teacher Face Chitra">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Dr. Chitra Balakrishna</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Senior Lecturer & Programme Leader for BSc (Hons) Computing (Network Security & Forensics)</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+               <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/GeorgiosFace.jpg" alt="Teacher Face Georgio">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Dr. Georgio Kontonatsios</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Senior Lecturer</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+            <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/MarkLiptrotFace.jpg" alt="Teacher Face MarkL">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Dr. Mark Liptrot</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Director of Postgraduate Taught Studies/ Director of International Partnerships</p>
+                     <p class="boxMarg">Senior Lecturer & Programme Leader for BSc (Hons) Computing (ITMB)</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+            <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/MarshmallowFace.png" alt="Teacher Face Marcello">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Dr. Marcello Trovati</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Senior Lecturer& Programme Leader for BSc (Hons) Computer Science & Computer Science and Mathamatics</p>
+                     <img src="Images/Faces/marshMallowww.png" class="marsh" alt="marsh"> 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--a row containing the information for a staff member-->
+      <div class="row">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+            <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/nikFace.jpg" alt="Teacher Face Nik">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Professor Nik Bessis</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  <!--a div that is hidden until the user clicks 'show details', which contains the information about the teacher-->
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Head of Department</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row bot">
+         <div class="column small-1 large-3">
+            &nbsp;
+         </div>
+         <div class="column small-10 large-6 deptGrid">
+            <div class="row ">
+            <!--an image in a column of the teacher-->
+               <img class="teach column small-2 large-2" src="Images/Faces/PeteFace.jpg" alt="Teacher Face Peter">
+               <!--a column after the image for the name of the teacher-->
+               <div class="column small-6 large-9">
+                  <h1 class="boxMargH">Peter Matthews</h1>
+                  <!--Another column containing both show details and hide details. when 'show details' is clicked, it is hidden and the information in the next div is displayed, then 'hide details' is displayed, and when 'hide details' is clicked, it is hidden and 'show details' is then displayed, and the information in the div below is hidden-->
+                  <div class="small-12 column">
+                     <a href="#" class="show boxMarg">Show details</a><a href="#" class="hide hidden boxMarg">Hide details</a>
+                  </div>
+                  
+                  <div class="details small-12 column hidden">
+                     <p class="boxMarg">Lecturer & Programme Leader for BSc (Hons) Computing (Games Programming)</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <footer>
+      <!--a row to hold the footer content-->
+      <div class=row>
+         <!--space at the start of the header-->
+         <div class="column small-1 large-1">
+            &nbsp;
+         </div>
+         <!--a column to hold the contact details-->
+         <div class="column small-11 large-8">
+            <!--a p element with line breaks so that the text groups nicely-->
+            <p class="footerText">Contact<br/>
+               Edge Hill University<br/>
+               St Helens Road<br/>
+               Ormskirk<br/>
+               Lancashire<br/>
+               L39 4QP<br/>
+               United Kingdom<br/>
+               +44(0)1695 575171</p>
+            </div>
+            <!--another column to hold the images that link to facebook-->
+            <div class="column small-hidden large-3">
+               <!--an a element put around the image so it will act as a button-->
+               <a class="imgA" href="https://www.facebook.com/edgehilluniversity" target="_blank">
+                  <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+                  <img class="socialM" src="Images/FacebookSymbol.jpg" onmouseover="this.src='Images/FacebookSymbolHover.jpg'" onmouseout="this.src='Images/FacebookSymbol.jpg'" alt="Facebook Symbol Image">
+               </a>
+               <!--an a element put around the image so it will act as a button-->
+               <a class="imgA" href="https://www.instagram.com/edgehilluniversity/" target="_blank">
+                  <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+                  <img class="socialM" src="Images/instagramSymbol.jpg" onmouseover="this.src='Images/instagramSymbolHover.jpg'" onmouseout="this.src='Images/instagramSymbol.jpg'" alt="Instagram Symbol Image">
+               </a>
+               <!--an a element put around the image so it will act as a button-->
+               <a class="imgA" href="https://twitter.com/edgehill" target="_blank">
+                  <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+                  <img class="socialM" src="Images/twitterSymbol.jpg" onmouseover="this.src='Images/twitterSymbolHover.jpg'" onmouseout="this.src='Images/twitterSymbol.jpg'" alt="Twitter Symbol Image">
+               </a> 
+               <!--an a element put around the image so it will act as a button-->
+               <a class="imgA" href="https://www.youtube.com/c/edgehilluniversity?sub_confirmation=1" target="_blank">
+                  <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+                  <img class="socialM" src="Images/youtubeSymbol.jpg" onmouseover="this.src='Images/youtubeSymbolHover.jpg'" onmouseout="this.src='Images/youtubeSymbol.jpg'" alt="YouTube Symbol Image">
+               </a>
+            </div>
+         </div>
+      </footer>
+   </body>
+   </html>

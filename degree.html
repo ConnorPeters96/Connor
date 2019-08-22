@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--This is the title that appears at the top of the page-->
+  <title>Computing Degree</title>
+  <!--Sets the character encoding for the page-->
+  <meta charset="UTF-8">
+  <!--The links to my CSS files go here-->
+  <link rel="stylesheet" href="grid.css"/>
+  <link rel="stylesheet" href="stylesheet.css"/>
+  <!--Links to the javascript files go here-->
+  <script src="jquery.min.js"></script>
+  <script src="details.js"></script>
+  <script src="comments.js"></script>
+  <!--This is the users visible area of the website-->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body class="backShade">
+  <!--START OF MAIN HTML CONTENT-->
+  <header>
+    <!--row for the header contents-->
+    <div id="black" class="row">
+      <!--first column contains an image for the mobile version, but is hidden for the desktop-->
+      <div class="column small-2 large-hidden notbig">
+        <!--an image of the uni crest-->
+        <img id="crest" src="Images/Crest.png" alt="Edge Hill Crest Image">
+      </div>
+      <!--a column created to add space for the title-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column for the title of the page-->
+      <div class="column small-8 large-8">
+        <!--links the title to the index.html-->
+        <a href="index.html">
+          <!--an image of the edge hill title-->
+          <img id="title" src="Images/EdgeHillTitle.jpg" alt="Edge Hill Title Image">
+        </a>
+      </div>
+      <!--a div to fit at the end of the page-->
+      <div class="column small-6 large-1">
+        <!--A link element around a div which makes the div seem like a button. it is linked to the home page so when a user clicks it, it takes them back-->
+        <a class="imgA" href="index.html">  
+          <!--a div containing Home to tell the user that the link goes back to the home page-->
+          <div class="nav navBig navSmall homenav">
+            <p>Home</p>
+          </div>
+        </a>
+      </div>
+      <!--a div next to the last at the end of the page-->
+      <div class="column small-6 large-1">
+        <!--A link element around a div which makes the div seem like a button. it is linked to the degree page so when a user clicks it, it takes them there-->
+        <a class="imgA" href="department.html">
+          <!--a div containing Degree to tell the user that the link continues to the next page 'degree'-->
+          <div class="nav navBig navSmall denav">
+            <p>Department</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+  <!--START OF THE MAIN PAGE CONTENT-->
+  <!--a div to hold the entire content of the page. this iks here because the background of the page fades to grey, and the black text becomes difficult to see so this is a platform 'above' the background which stands out and holds all of the content-->
+  <div class="row contentHolderBig contentHolderSmall">
+    <!--A row to contain the main text information on the page-->
+    <div class="row">
+      <!--A column to give the content a buffer away from the edge -->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column which contains the information, goes half way accross the page to make room for the image-->
+      <div class="column small-9 large-5 smallL">
+        <h1>Entry Criteria</h1>
+        <h2>Standard entry requirements</h2>
+        <p>112 UCAS Tariff points, for which no specific subjects are required, plus evidence of numeracy.</p>
+        <h2>Example Offers</h2>
+        <p>Some typical examples of how you can achieve 112 UCAS Tariff points are detailed below.</p>
+        <!--A bulleted list for different ways somebody can get onto the course.-->
+        <ul>
+          <li>A Levels - BBC</li>
+          <li>BTEC Extended Diploma (or combination of BTEC QCF qualifications) - Distinction, Merit, Merit (DMM)</li>
+          <li>Access to Higher Education Diploma - 45 credits at Level 3, for example 15 credits at Distinction and 30 credits at Merit. The required total can be attained from various credit combinations</li>
+          <li>Please note, the above examples may differ from actual offers made. A combination of A Level and BTEC awards may also be accepted.</li>
+        </ul>
+        <p>As long as you have a minimum of two A Levels (or equivalent), there is no maximum number of qualifications that we will accept UCAS points from. This includes additional qualifications such as the Welsh Baccalaureate and Extended Project Qualification (EPQ), AS Levels that haven't been continued to A Level, and General Studies AS or A Level awards.</p>
+      </div>
+	  <!--A column to give the content a buffer away from the edge -->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column reaching 4 across the page on the desktop, and all the way on mobile with an image of a current student.-->
+      <div class="column small-12 large-4">
+        <img class="smallDiv rImage" src="Images/learning.jpg" alt="Student Learning Image">
+      </div>
+      <!--A buffer at the end of the page-->
+      <div class="small-hidden large-1">
+        &nbsp;
+      </div>
+    </div>
+    <!--A row containing the header for the next content-->
+    <div class="row">
+    <!--a buffer at the beginning of the page-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a heading to tell the user what content there is-->
+      <div class="column small-9 large-10 smallL">
+        <h1>Overview</h1>
+      </div>
+    </div>
+    <!--A row containing a table with an overview of the course-->
+    <div class="row">
+      <!--a buffer at the beginning of the page to center the content-->
+      <div class="column small-2 large-4">
+        &nbsp;
+      </div>
+      <!--a div containing the table with all of the content for overview-->
+      <div class="column small-8 large-4">
+        <!--a table with five rows and two columns, the first column is all headings, the second column is all content-->
+        <table>
+          <!--OVERVIEW TABLE CONTENT-->
+          <tr class="tableOptions">
+            <th class="tableOptions">Ucas Code</th>
+            <td class="tableOptions">6401</td>
+          </tr>
+          <tr class="tableOptions">
+            <th class="tableOptions">Course length</th>
+            <td class="tableOptions">3 years full time</td>
+          </tr>
+          <tr class="tableOptions">
+            <th class="tableOptions">Start dates</th>
+            <td class="tableOptions">September 2017</td>
+          </tr>
+          <tr class="tableOptions">
+            <th class="tableOptions">Department</th>
+            <td class="tableOptions">Department of Computer Science</td>
+          </tr>
+          <tr class="tableOptions">
+            <th class="tableOptions">Location</th>
+            <td class="tableOptions">Edge Hill University</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--a new row for the module choices headings-->
+    <div class="row">
+    <!--a buffer at the beginning of the page-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--A column containing the headers-->
+      <div class="column small-9 large-10 smallL">
+        <h1>Modules</h1>
+        <h2>Year 1</h2>
+      </div>
+    </div>
+    <!--A row containing the main module content for the page-->
+    <div class="row">
+    <!--a buffer at the beginning of the page-->
+      <div class="column small-2 large-2">
+        &nbsp;
+      </div>
+      <!--a column containing all of the content of the tables-->
+      <div class="column small-8 large-8">
+        <!--I had to use multiple tables instead of multiple rows for this because the javascript would only open all of the information or none of it, so i could not view one module information at a time. i was able to fit the tables together so they seemed natural.-->
+        <table>
+          <tr class="tableOptions">
+            <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1107 Foundations of Computer Science (20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Foundations of Computer Science</b> introduces you to the concepts and practices of problem solving through a series of innovative class seminars and individual experiments.  You will learn to identify a problem, analyse it, and produce a structured solution. Exploring common issues within computing, you will also see how all of the separate areas merge, overlap and depend on each other in order for a robust computing system to be developed.</td>
+          </tr>
+        </table>
+        <table>
+          <tr class="tableOptions">
+            <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1108 Digital World: Information Systems and Design (20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Digital World: Information Systems and Design</b> explores how the world of the 21st century is underpinned by computing technology. The module will develop your understanding of the essential concepts of systems analysis, including identifying systems processes, understanding business needs and presenting appropriate IT solutions. You will then apply this knowledge of systems analysis and design methods to make suggestions for improvement of a business, its processes and information systems.</td>
+          </tr>
+        </table>
+        <table>
+          <tr class="tableOptions">
+          <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1109 Digital World: Computer Networks and Networks (20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Digital World: Computer Architecture and Networks</b> explores how the world of the 21st century is underpinned by computing technology while challenging you to envision your future developments as a Computing professional. The module discusses how current and modern computer architectures operates. It also analyses the technology on which computer architecture depends, starting with current central processing units (CPUs) and their instruction sets and progressing to the principles of modern multitasking operating systems that are supported by the underlying hardware architectures. An important aspect of modern computer technology is networking. The module introduces and covers basic principles of networks, their interconnecting components and protocols used in enabling reliable communications.</td>
+          </tr>
+        </table>
+        <table>
+          <tr class="tableOptions">
+          <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1110 Web Design and Development(20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Web Design and Development</b> is a fusion of two distinct areas in the world of web content production. The module will enable you to develop a sound understanding of the World Wide Web, the related technologies, the relationships between them and also their use. You will also explore colour and design theories, layout and typography. In addition, the module provides an appropriate setting to introduce some of the more powerful, user friendly web development tools used widely in the industry today, along with HTML and CSS and both client and server side scripting.</td>
+          </tr>
+        </table>
+        <table>
+          <tr class="tableOptions">
+          <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1111 Programming: Concepts to construction 1 (20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Programming: Concepts to Construction 1</b> provides a practical introduction to the fundamentals of an object-oriented approach to software development. You will be introduced to the analytical techniques and processes that are essential for specifying, designing and implementing applications.</td>
+          </tr>
+        </table>
+        <table>
+          <tr class="tableOptions">
+          <!--Heading for the content of this module-->
+            <th class="tableOptions">CIS1112 Concepts to construction 2 (20 Credits)
+              <div class="small-12 column">
+              <!--links that show or hide information, similar to the previous page. if 'show details' is pressed, hide details appaears in it's place and the content in the tr below will be displayed, and vice versa for the 'hide details' link.-->
+                <a href="#" class="show2 boxMarg">Show details</a><a href="#" class="hide2 hidden boxMarg">Hide details</a>
+              </div>
+            </th>
+          </tr>
+          <!--the main content of this module is hidden until show details is pressed. it is hidden again when hide details is pressed-->
+          <tr class="tableOptions hidden details" >
+            <td class="tableOptions"><b>Programming: Concepts to Construction 2</b> provides a practical introduction to the fundamentals of an object-oriented approach to software development. You will explore and develop object-oriented modelling techniques and receive an introduction to programming through event-driven program design and graphical user interfaces.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!--A row containing the title for the next section-->
+    <div class="row">
+      <!--a buffer at the beginning of the page-->
+      <div class="column small-1 large-1">
+        &nbsp;
+      </div>
+      <!--a column containing the title of this section-->
+      <div class="column small-10 large-10">
+        <h1>Comments</h1>
+      </div>
+    </div>
+    <!--A row containing all of the comments section-->
+    <div class="row">
+      <!--a buffer at the beginning of the page-->
+      <div class="column small-1 large-3">
+        &nbsp;
+      </div>
+      <!--A column containing all of the comments section-->
+      <div class="column small-9 large-6 smallL">
+        <!--two links that show all of the comments and hide them. when show Comments is pressed, it is hidden, then hide details is Comments and so is all of the information within the div 'info'. when hide Comments is pressed, it is replaced with show comments and all of the infromation within the tag 'info' is hidden.-->
+        <a href="#" class="showComments">Show Comments</a><a href="#" class="hideComments hidden">Hide Comments</a>
+        <div class="info">
+          <!--all of the information taken from the link, given by the users of the website is added here.-->
+          <dl></dl>
+        </div>
+        <!--a form for the user to input all of their own details, to then be sent to the storage website-->
+        <form action="#" class="add_review">
+          <!--a label to tell the user to input their name-->
+          <label>Name
+            <!--an input box for the user's name-->
+            <input type="text" name="name"/>
+          </label>
+          <!--a label to tell the user to input their email address-->
+          <label>Email Address
+            <!--an input box for the user's email address-->
+            <input type="email" name="email"/>
+          </label>
+          <!--a label to tell the user to input their comment-->
+          <label>Comment
+            <!--a textarea box for the user's comment-->
+            <textarea name="review"></textarea>
+          </label>
+          <!--an input button for the user to submit and view their information-->
+          <input type="submit" value="Add Review">
+      </form>
+    </div>
+  </div>
+</div>
+<footer>
+  <!--a row to hold the footer content-->
+  <div class=row>
+    <!--space at the start of the header-->
+    <div class="column small-1 large-1">
+      &nbsp;
+    </div>
+    <!--a column to hold the contact details-->
+    <div class="column small-11 large-8">
+      <!--a p element with line breaks so that the text groups nicely-->
+      <p class="footerText">Contact<br/>
+        Edge Hill University<br/>
+        St Helens Road<br/>
+        Ormskirk<br/>
+        Lancashire<br/>
+        L39 4QP<br/>
+        United Kingdom<br/>
+        +44(0)1695 575171</p>
+      </div>
+      <!--another column to hold the images that link to facebook-->
+      <div class="column small-hidden large-3">
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.facebook.com/edgehilluniversity" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/FacebookSymbol.jpg" onmouseover="this.src='Images/FacebookSymbolHover.jpg'" onmouseout="this.src='Images/FacebookSymbol.jpg'" alt="Facebook Symbol Image">
+        </a>
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.instagram.com/edgehilluniversity/" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/instagramSymbol.jpg" onmouseover="this.src='Images/instagramSymbolHover.jpg'" onmouseout="this.src='Images/instagramSymbol.jpg'" alt="Instagram Symbol Image">
+        </a>
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://twitter.com/edgehill" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/twitterSymbol.jpg" onmouseover="this.src='Images/twitterSymbolHover.jpg'" onmouseout="this.src='Images/twitterSymbol.jpg'" alt="Twitter Symbol Image">
+        </a> 
+        <!--an a element put around the image so it will act as a button-->
+        <a class="imgA" href="https://www.youtube.com/c/edgehilluniversity?sub_confirmation=1" target="_blank">
+          <!--A rollover image so the image changes lighter when the user rolls a mouse over the image-->
+          <img class="socialM" src="Images/youtubeSymbol.jpg" onmouseover="this.src='Images/youtubeSymbolHover.jpg'" onmouseout="this.src='Images/youtubeSymbol.jpg'" alt="YouTube Symbol Image">
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

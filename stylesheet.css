@@ -1,0 +1,281 @@
+/*no margins to get rid of excess white space*/
+body{
+	margin: 0px 0px 0px 0px;
+	min-height: 100%;
+	font: Helvetica, Arial;
+	font-size: 12pt;
+}
+/*If the screen is less than 42.999em do the following*/
+@media screen and (max-device-width: 54.999em){
+	/*have no background image*/
+	div.noBackgroundTechhub{
+		background-image: none;
+	}
+	/*the options for the background of all content on the page that 'pops' away from the body content the mobile version is not visible because the settings are the same as the box it is on*/
+	div.contentHolderSmall{
+		background-color: white;
+		border-radius: 0;
+		margin: 0;
+		padding: 0;
+		max-width: 100%;
+		box-shadow: none;
+	}
+	/*the top button has - top margins, but + buttom margins, and is only 85% of the div*/
+	div.button-top{
+		margin: -2em 0em 1em 0em;
+		width: 85%;
+	}
+	/*the bottom button only has bottom margins and is 85% width of the div*/
+	div.button-bottom{
+		margin: 0em 0em 2em 0em;
+		width: 85%;
+	}
+	/*the navigation bar when it is small*/
+	div.navSmall{
+		padding: 0.1em 0em 0.1em 0em;
+		margin-top: 0.7em;
+		width:100%;
+	}
+	/*adds a margin left to this div to keep information from the side*/
+	div.smallL{
+		padding: 0em 2em 0em 2em;
+	}
+}
+/*If the screen is more than 43em then do the following*/
+@media screen and (min-device-width: 55em) {
+	/*add the background image that doesnt repeat, has padding on the bottom and fits the entire div*/
+	div.backgroundTechhub{
+		background-image: url("Images/TechHub.png");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		padding-bottom: 2em;
+	}
+	/*sets background of screen to a gradient on the desktop version*/
+	body{
+		background-image: linear-gradient(#932ba1, #6a1f74);
+	}
+	/*the content holder to hold all of the content on the main pages on the desktop version, this 'pops' away from the page*/
+	div.contentHolderBig{
+		background-color: rgba(255, 255, 255, 0.95);
+		border-radius: 25px;
+		margin: 2% 10% 2% 10%;
+		padding: 2em;
+		width: 78%;
+		box-shadow: 0px 0px 40px #4d4d4d;
+	}
+	/*the top button has a top margin*/
+	div.button-top{
+		margin-top: 7em;
+	}
+	/*the bottom button also has a top margin*/
+	div.button-bottom{
+		margin-top: 10em;
+	}
+	/*decides on the nav options for the navigation bar on the desktop version*/
+	div.navBig{
+		padding: 0.3em;
+		margin-top: 4.1em;
+		border-radius: 15px;
+	}
+	/*controls the minimum width of both of the nav buttons on the home page*/
+	div.homenav{
+		min-width: 3em;
+	}
+	/*minimum width of the department nav button on the other pages*/
+	div.denav{
+		min-width:5em;
+	}
+}
+/*PURPLE BUTTON CSS*/
+/*general buttons styles look like they are popping off the screen, have centred text and padding inside*/
+div.button{
+	background-color: #6a1f74;
+	border-radius: 25px;
+	border-style: solid;
+	border-width: 1em;
+	border-color: #5c1b65 #38103d #250b28 #4a1551;
+	text-align: center;
+	padding: 4em 2em 4em 2em;
+}
+/*when the user hovers over the button the background colour becomes lighter*/
+div.button:hover{
+	background-color: #932ba1;
+	box-shadow: 0px 0px 40px black;
+
+}
+/*sets the navigation buttons*/
+div.nav{
+	color: white;
+	background-color: #443c3e;
+	text-align: center;
+}
+/*when the navigation buttons are hovered over, their background colour changes*/
+div.nav:hover{
+	background-color: #6c6063;
+}
+/*I had a problem with the div around the crest being too high, so i made this to change the height*/
+div.notbig{
+	height: 7em;
+}
+/*div to control the grid for the teacher's information*/
+div.deptGrid{
+	background-color: #932ba1;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #4a1551;
+	color: white;
+	margin-top: 2em;
+}
+/*anything that needed to be the full width of it's column was given this class*/
+.smallDiv{
+	width: 100%;
+}
+/*gives the row before the footer some space between this and the footer*/
+div.bot{
+	margin-bottom: 2em;
+}
+/*ALL DIVS WITH ID'S*/
+/*this div is for the header, it sets the height and background colour*/
+div#black{
+	background-color: black;
+	color: white;
+	height: 7em;
+	padding: 0em 0em 1em 0em;
+}
+/*makes the background colour of the navigation black*/
+div#NavBlack{
+	background-color: black;
+}
+/*the div for the text box, it is white and slightly opaque with rounded edges*/
+div#textBox{
+	background-color: rgba(255, 255, 255, 0.95);
+	border-radius: 25px;
+	margin: 2em 0em 2em 0em;
+	padding: 2em;
+}
+/*ALL IMAGES*/
+/*controls the crest image*/
+img#crest{
+	height: 7em;
+	width: 100%;
+	margin: 0.5em;
+}
+/*controls the title image*/
+img#title{
+	height:7em;
+	width: 100%;
+	margin-left: 1em;
+	max-width: 550px;
+}
+/*controls the tech hub image on the mobile version*/
+img#smallTechub{
+	width: 100%;
+	margin: -4px 0px -2em 0px;
+}
+/*controls the social media buttons*/
+img.socialM{
+	height: 70px;
+	margin-top: 3em;
+}
+/*controls the image on the right of the screen*/
+img.deptRight{
+	width: 100%;
+	margin-top: 1em;
+}
+/*controls the images of the teachers*/
+img.teach{
+	height: 8em;
+	width: 8em;
+}
+/*controls the image on the degree page on the right side of the page*/
+img.rImage{
+	margin-top: 4.5em;
+}
+
+/*FOOTER*/
+footer{
+	background-color: black;
+}
+/*controls the text within the footer*/
+p.footerText{
+	color:white;
+}
+/*A LINKS*/
+/*takes away the underlining on the social media images*/
+a.imgA{
+	text-decoration: none;
+}
+
+/*TABLES*/
+/*All edits to the outside of the table*/
+table{
+	width: 100%;
+	border-width: 0.5px;
+	border-spacing: 0;
+	border-style: solid;
+	border-color: #4a1551;
+}
+/*all edits to the first column of the table*/
+table th{
+	background-color: #6a1f74;
+}
+/*all edits to the second column of the table*/
+table td{
+	background-color: #932ba1;
+}
+/*I created this class so that the code would not have to be repeated in th and td*/
+.tableOptions{
+	padding: 0.5em;
+	border-color: #4a1551;
+	border-width: 1px 2px 1px 1px;
+	border-style: solid;
+	color: white;
+}
+/*TEXT CHANGES*/
+/*sets the theme of the h1 text in a dark situation to white*/
+h1.dark{
+	color: white;
+}
+/*puts the name of the user on the same line as the header text*/
+h1.mainH{
+	display: inline;
+}
+/*controls the font for main headings*/
+h1{
+	font: Helvetica, Arial;
+	font-size: 26pt;
+	color: black;
+	text-decoration: underline;
+}
+blockquote{
+	font-size: 14pt;
+}
+/*controls an image of the teacher*/
+.marsh{
+	width:20px;
+	height:20px;
+	margin-left: 2em;
+}
+/*controls the color of the text to grey when hovered over, to show the user it is clickable*/
+a.boxMarg:hover{
+	color: grey;
+}
+/*controls the colour of text for the show details and hide details*/
+.boxMarg{
+	margin-left: 2em;
+	color: white;
+}
+/*controls text for headers*/
+.boxMargH{
+	margin-left: 1em;
+	margin-bottom: 0px;
+	color: white;
+}
+/*controls the input types for the form*/
+input[type="text"], input[type="email"], textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+form{
+	margin-bottom: 2em;
+}

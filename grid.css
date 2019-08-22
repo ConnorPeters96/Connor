@@ -1,0 +1,118 @@
+/*sets the default html text*/
+html {
+    font-family:Helvetica,Arial,sans-serif;
+    font-size: 12pt;
+}
+/*controls the rows*/
+.row {
+    width:100%;
+    max-width:100%;
+    margin:0 auto;
+}
+.row:after {
+    content:' ';
+    display:table;
+    clear: both;
+}
+/*hides ALL content with this class*/
+.hidden {
+    display: none;
+}
+/*if the screen is less than 43em the follwing code is relevent*/
+@media screen {
+    /*sets the rules for columns*/
+    .column {
+        float:left;
+        box-sizing: border-box;
+    }
+    /*SETS ALL OF THE DIFFERENT SIZES BASED ON % OF SCREEN SIZE*/
+    .small-1 {
+        width:8.333%;
+    }
+    .small-2 {
+        width:16.666%;
+    }
+    .small-3 {
+        width:25%;
+    }
+    .small-4 {
+        width:33.333%;
+    }
+    .small-5 {
+        width:41.666%;
+    }
+    .small-6 {
+        width:50%;
+    }
+    .small-7 {
+        width:58.333%;
+    }
+    .small-8 {
+        width:66.666%;
+    }
+    .small-9 {
+        width:75%;
+    }
+    .small-10 {
+        width:83.333%;
+    }
+    .small-11 {
+        width:91.666%;
+    }
+    .small-12 {
+        width: 100%;
+    }
+    /*HIDES DIFFERENT PARTS*/
+    .large-hidden {
+        display:block;
+    }
+    .small-hidden {
+        display: none;
+    }
+}
+@media screen and (min-device-width:55em) {
+    /*SETS ALL OF THE DIFFERENT SIZES BASED ON % OF SCREEN SIZE*/
+    .large-1 {
+        width:8.333%;
+    }
+    .large-2 {
+        width:16.666%;
+    }
+    .large-3 {
+        width:25%;
+    }
+    .large-4 {
+        width:33.333%;
+    }
+    .large-5 {
+        width:41.666%;
+    }
+    .large-6 {
+        width:50%;
+    }
+    .large-7 {
+        width:58.333%;
+    }
+    .large-8 {
+        width:66.666%;
+    }
+    .large-9 {
+        width:75%;
+    }
+    .large-10 {
+        width:83.333%;
+    }
+    .large-11 {
+        width:91.666%;
+    }
+    .large-12 {
+        width: 100%;
+    }
+    /*HIDES DIFFERENT PARTS*/
+    .small-hidden {
+        display:block;
+    }
+    .large-hidden {
+        display: none;
+    }
+}

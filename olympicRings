@@ -1,0 +1,108 @@
+//last updated 01/03/2018 by Connor Peters - 23281502
+
+import java.applet.Applet;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Arc2D;
+
+public class OlympicRings extends Applet {
+
+    //variable to make arcs
+    Arc2D.Double arc;
+
+    public void init() {
+        //new instance of the arc
+        arc = new Arc2D.Double();
+        //changes background to white to see foreground easier
+        setBackground(Color.white);
+    }
+
+    public void paint(Graphics g) {
+
+        Graphics2D g2 = (Graphics2D) g;
+
+        //Sets the stroke to have squared edges
+        g2.setStroke(new BasicStroke(10F));
+
+        //draws a full blue circle
+        g2.setColor(Color.blue);
+        arc.setFrame(100, 50, 100.0, 100.0);
+        arc.setAngleStart(0);
+        arc.setAngleExtent(360);
+        g2.draw(arc);
+
+        //Draws a full yellow circle
+        g2.setColor(Color.yellow);
+        arc.setFrame(160, 90, 100.0, 100.0);
+        arc.setAngleStart(0);
+        arc.setAngleExtent(360);
+        g2.draw(arc);
+
+        //Draws a full black circle
+        g2.setColor(Color.black);
+        arc.setFrame(220, 50, 100.0, 100.0);
+        arc.setAngleStart(0);
+        arc.setAngleExtent(360);
+        g2.draw(arc);
+
+        //Draws a full green circle
+        g2.setColor(Color.green);
+        arc.setFrame(280, 90, 100.0, 100.0);
+        arc.setAngleStart(0);
+        arc.setAngleExtent(360);
+        g2.draw(arc);
+
+        //Draws a full red circle
+        g2.setColor(Color.red);
+        arc.setFrame(340, 50, 100.0, 100.0);
+        arc.setAngleStart(0);
+        arc.setAngleExtent(360);
+        g2.draw(arc);
+        
+        /*
+        *   draws a small blue arc covering part of the yellow arc to simulate
+        *   that the two circles are bound together
+         */
+        g2.setColor(Color.blue);
+        arc.setFrame(100, 50, 100.0, 100.0);
+        //only draws a 30 degree angle over the yellow circle
+        arc.setAngleStart(340);
+        arc.setAngleExtent(30);
+        g2.draw(arc);
+        
+        /*
+        *   draws a small yellow arc covering part of the blue arc to simulate
+        *   that the two circles are bound together
+         */
+        g2.setColor(Color.yellow);
+        arc.setFrame(160, 90, 100.0, 100.0);
+        //only draws a 30 degree angle over the black circle
+        arc.setAngleStart(50);
+        arc.setAngleExtent(30);
+        g2.draw(arc);
+        
+        /*
+        *   draws a small black arc covering part of the green arc to simulate
+        *   that the two circles are bound together
+         */
+        g2.setColor(Color.black);
+        arc.setFrame(220, 50, 100.0, 100.0);
+        //only draws a 30 degree angle over the green circle
+        arc.setAngleStart(340);
+        arc.setAngleExtent(30);
+        g2.draw(arc);
+
+        /*
+        *   draws a small green arc covering part of the red arc to simulate
+        *   that the two circles are bound together
+         */
+        g2.setColor(Color.green);
+        arc.setFrame(280, 90, 100.0, 100.0);
+        //only draws a 30 degree angle over the red circle
+        arc.setAngleStart(50);
+        arc.setAngleExtent(30);
+        g2.draw(arc);
+    }
+}

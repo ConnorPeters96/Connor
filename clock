@@ -1,0 +1,344 @@
+//last updated 15/02/2018 by Connor Peters - 23281502
+
+import java.applet.Applet;
+import java.awt.Color;
+
+public class Animation extends Applet {
+
+    public static void main(String[] args) {
+        StdDraw.setXscale(1, 500);
+        StdDraw.setYscale(1, 500);
+
+        //runs the bounceBalls method
+        //bounceBalls(1);
+        //runs the graphicsComputer method
+        //graphicsComputer();
+        //runs the AnalogueClock method
+        AnalogueClock();
+    }
+
+    //draws a specified amount of bouncing balls that all collide with walls and each other
+    public static void bounceBalls(int a) {
+        //sets different scale of the area in which the balls will run
+        StdDraw.setXscale(-1.0, 1.0);
+        StdDraw.setYscale(-1.0, 1.0);
+
+        //new integer variable balls that is defined by the parameter
+        int balls = a;
+
+        /*
+        *   new variables which sets the minimum and maximum space within the 
+        *   scale of the area for the balls to spawn
+         */
+        double min = -0.9;
+        double max = 0.9;
+        //a range variable that helps to place objects
+        double range = max - min;
+
+        /*
+        *    create new arrays that hold the xAxis and yAxis values, and the direction 
+        *   along the xAxis and yAxis axis of each ball
+         */
+        double[] radX = new double[balls];
+        double[] radY = new double[balls];
+        double[] dirX = new double[balls];
+        double[] dirY = new double[balls];
+        //sets xPoint variable to make the balls to have xPoint rad of 0.05
+        double rad = 0.07;
+
+        /*
+        *   xPoint loop to find positions and speeds for all of the balls. it finds
+        *   as man as the parameter suggests
+         */
+        for (int i = 0; i < balls; i++) {
+            //finds xPoint random position to draw the circles in
+            double circXplace = (Math.random() * range) + min;
+            double circYplace = (Math.random() * range) + min;
+            //puts places of circles in array
+            radX[i] = circXplace;
+            radY[i] = circYplace;
+
+            //sets the original direction to move towards the bottom right of the frame
+            dirX[i] = Math.random() / 100;
+            dirY[i] = -Math.random() / 100;
+        }
+
+        /*
+        *   A loop to draw the circles initially, then redraw them in the new
+        *   positions to simulate movement. it lasts forever so that the method runs forever
+         */
+        while (true) {
+            //run the for loop for as long as the amount of balls there are
+            for (int i = 0; i < balls; i++) {
+                //draw xPoint filled circle at the random coordinates in the array
+                StdDraw.filledCircle(radX[i], radY[i], rad);
+
+                /*
+                *   adds the direction of the ball to the current position so
+                *   when it is next drawn it will have moved
+                 */
+                radX[i] = radX[i] + dirX[i];
+                radY[i] = radY[i] + dirY[i];
+
+                /*
+                *   collision detection for the edges of the frame. if the ball
+                *   hits the edge, its direction is reversed
+                 */
+                //reverses xAxis axis for sides of frame
+                if (radX[i] > 1 - rad || radX[i] < -1 + rad) {
+                    dirX[i] = dirX[i] * -1;
+                }
+
+                //reverses yAxis axis for top and bottom of frame
+                if (radY[i] > 1 - rad || radY[i] < -1 + rad) {
+                    dirY[i] = dirY[i] * -1;
+                }
+
+                //loops for the amount of balls there are
+                for (int j = 0; j < balls; j++) {
+
+                    /*
+                    *   Collision detection between other circles. finds the difference
+                    *   in xAxis and yAxis values between two circles, ind if that difference
+                    *   is less than twice the radius of xPoint circle, then reverse the directions of the circles
+                     */
+                    //finds the distance of the circles
+                    double diff = Math.sqrt(((radX[i] - radX[j]) * (radX[i] - radX[j])) + ((radY[i] - radY[j]) * (radY[i] - radY[j])));
+                    //reverses directions if the distance is too small
+                    if (diff < rad * 2) {
+                        dirX[i] = -dirX[i];
+                        dirX[j] = -dirX[j];
+                        dirY[i] = -dirY[i];
+                        dirY[j] = -dirY[j];
+                    }
+                }
+            }
+            //draws the circles
+            StdDraw.show(20);
+            //clears what was previously drawn to make way for the new positions of balls
+            StdDraw.clear();
+        }
+    }
+
+    //draws the words graphics computer spinning in a circle
+    public static void graphicsComputer() {
+
+        //saves angle that letters should be placed on based on amount of letters there are
+        double letterAngle = (Math.PI * 2) / 19;
+        //will start the circle in the right position
+        double anglepos = 0.5;
+        //variables to set position of circle
+        double xAxis = 250;
+        double yAxis = 250;
+        //variable to set size of circle
+        double radius = 150;
+
+        //creates new array to save the letters in
+        String[] graphicsComputing = new String[19];
+
+        //stored backwards so it will show forwards at the top
+        graphicsComputing[0] = "S";
+        graphicsComputing[1] = "C";
+        graphicsComputing[2] = "I";
+        graphicsComputing[3] = "H";
+        graphicsComputing[4] = "P";
+        graphicsComputing[5] = "A";
+        graphicsComputing[6] = "R";
+        graphicsComputing[7] = "G";
+        //adds xPoint space in between the words
+        graphicsComputing[8] = " ";
+        //stored forwards so it will show forwards at the bottom
+        graphicsComputing[9] = "C";
+        graphicsComputing[10] = "O";
+        graphicsComputing[11] = "M";
+        graphicsComputing[12] = "P";
+        graphicsComputing[13] = "U";
+        graphicsComputing[14] = "T";
+        graphicsComputing[15] = "I";
+        graphicsComputing[16] = "N";
+        graphicsComputing[17] = "G";
+        graphicsComputing[18] = " ";
+
+        //endless loop to turn the letters around xPoint circle
+        while (true) {
+            //loop that runs for the array length-1 (18 times)
+            for (int i = 0; i <= graphicsComputing.length - 1; i++) {
+
+                //saves the letter as character
+                String character = graphicsComputing[i];
+
+                //finds xAxis and yAxis positions for each character
+                double Xpos = Math.round(xAxis + radius * Math.cos(i * letterAngle + anglepos));
+                double Ypos = Math.round(xAxis + radius * Math.sin(i * letterAngle + anglepos));
+
+                //draws the character at the right position of the circle
+                StdDraw.text(Xpos, Ypos, character);
+            }
+            //sets the angle to slightly less than the last, changing the position of each character
+            anglepos = anglepos - 0.003;
+            //the commented out code below would change the direction of the circle
+            //anglepos = anglepos + 0.003;
+            //draws the characters in the right places
+            StdDraw.show(8);
+            //clears what was drawn ready to be replaced by the next position to simulate movement
+            StdDraw.clear();
+        }
+    }
+
+    //draws a working analogue clock
+    public static void AnalogueClock() {
+
+        //variable of xPoint 1 degree angle of xPoint circle
+        double angle = (Math.PI * 2) / 360;
+
+        double radius = 150;
+        double xAxis = 250;
+        double yAxis = 250;
+        int xPosition = 0;
+        int yPosition = 0;
+        int angleTime = 0;
+
+        double counter = 0;
+        long realTime = System.currentTimeMillis();
+        //saves where the seconds hand is on the clock 
+        int secondsHand = (int) (realTime / 1000) % 60;
+        //saves where the minutes hand is on the clock 
+        int minutesHand = (int) (realTime / (1000 * 60)) % 60;
+        //saves where the hours hand is on the clock 
+        int hoursHand = (int) (realTime / (1000 * 60 * 60)) % 12;
+
+        int seconds = secondsHand * 6;
+        int minutes = minutesHand * 6;
+        int hours = (hoursHand * 30) + (minutesHand / 2);
+
+        //new array for all of the x and y positions in xPoint circle
+        Double[][] points = new Double[360][2];
+
+        //new loop to save every angle in xPoint circle into the array
+        for (int i = 0; i <= 359; i++) {
+            //finds the angle to start on the circle
+            double Xi = Math.round(xAxis + radius * Math.cos(i * -angle + 1.57));
+            double Yi = Math.round(xAxis + radius * Math.sin(i * -angle + 1.57));
+            //stores every angle into the array
+            points[yPosition][xPosition] = Xi;
+            xPosition = xPosition + 1;
+            points[yPosition][xPosition] = Yi;
+            xPosition = 0;
+            yPosition = yPosition + 1;
+        }
+
+        //new array to store the timeText of the numbers around xPoint clock
+        String[] timeText = new String[12];
+
+        timeText[0] = "12";
+        timeText[1] = "1";
+        timeText[2] = "2";
+        timeText[3] = "3";
+        timeText[4] = "4";
+        timeText[5] = "5";
+        timeText[6] = "6";
+        timeText[7] = "7";
+        timeText[8] = "8";
+        timeText[9] = "9";
+        timeText[10] = "10";
+        timeText[11] = "11";
+
+        //runs continuously
+        while (true) {
+            //draws background/frame of the clock for style
+            StdDraw.setPenRadius(0.05);
+            StdDraw.setPenColor(Color.LIGHT_GRAY);
+            StdDraw.circle(250, 250, 200);
+            StdDraw.setPenColor(Color.BLACK);
+            StdDraw.circle(250, 250, 215);
+            StdDraw.setPenRadius();
+            StdDraw.circle(250, 250, 188);
+
+            StdDraw.setPenColor(Color.GREEN);
+            double hourX = points[hours][0];
+            double hourY = points[hours][1];
+            //makes a slightly thicker hour line again and draws it in the correct place
+            StdDraw.setPenRadius(0.01);
+            StdDraw.line(250, 250, hourX, hourY);
+
+            //makes minute hand red
+            StdDraw.setPenColor(Color.RED);
+            double minuteX = points[minutes][0];
+            double minuteY = points[minutes][1];
+            //makes a slightly thicker minute line and draws it in the correct place
+            StdDraw.setPenRadius(0.005);
+            StdDraw.line(250, 250, minuteX, minuteY);
+            //sets colour and radius back to normal to draw the rest of the clock
+            StdDraw.setPenColor(Color.BLACK);
+            StdDraw.setPenRadius();
+
+            /*
+            *   loop to draw text in xPoint circle around the clock. each number draws
+            *   30 degrees from the other
+             */
+            for (int i = 0; i <= 359; i = i + 30) {
+                double xPoint = points[i][0];
+                double yPoint = points[i][1];
+                StdDraw.text(xPoint, yPoint, timeText[angleTime]);
+                angleTime = angleTime + 1;
+            }
+
+            /*
+            *   draws dots on every second apart from the ones with numbers on,
+            *   to make it easier to see which second the hand is currently pointing to
+             */
+            for (int i = 0; i <= 359; i = i + 6) {
+                double xPoint = points[i][0];
+                double yPoint = points[i][1];
+
+                if (i != 0 && i != 30 && i != 60 && i != 90 && i != 120 && i != 150 && i != 180 && i != 210 && i != 240 && i != 270 && i != 300 && i != 330 && i != 360) {
+                    StdDraw.filledCircle(xPoint, yPoint, 1);
+                }
+            }
+            //initializes angleTime back to 0
+            angleTime = 0;
+
+            //gets x and y axis for the second hand to point to from array
+            double secondX = points[seconds][0];
+            double secondY = points[seconds][1];
+
+            //draws the line to the correct points
+            StdDraw.line(250, 250, secondX, secondY);
+            //adds 6 to seconds hand to move to the next second
+            seconds = seconds + 6;
+
+            //look for if the second hand rotates once
+            if (seconds >= 360) {
+                //adds six to the minutes hand counter so it will move to the next minute
+                minutes = minutes + 6;
+                //sets the second hand back to 0 to start again
+                seconds = 0;
+                counter = counter + 1;
+            }
+
+            //look for if the minute hand rotates once
+            if (minutes >= 359) {
+                //sets the minute hand back to 0 to start again
+                minutes = 0;
+            }
+
+            if (counter == 2) {
+                hours = hours + 1;
+                counter = 0;
+            }
+            //look for if the hour hand rotates once
+            if (hours >= 360) {
+                //sets the hour hand back to 0 to start again
+                hours = 0;
+                counter = 0;
+            }
+
+            //use the below show to see the clock in real time
+            //StdDraw.show(1000);
+            //Use the below show to see the clock sped up to see the hour hand in action
+            StdDraw.show(1);
+            //clears the frame to draw new things in the right position
+            StdDraw.clear();
+        }
+    }
+}

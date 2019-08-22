@@ -1,0 +1,421 @@
+package newsolarsystem;
+
+//colour import for lighting
+import java.awt.Color;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+//key press listener
+import static newsolarsystem.StdDraw3D.isKeyPressed;
+
+public class SolarSystem {
+
+    //creates a circle for the planets to move around
+    static double circle = (Math.PI * 2) / 365;
+
+    //START POSITIONS OF PLANETS
+    static double mercPos = 0;
+    static double venPos = 0;
+    static double earthPos = 0;
+    static double moonPos = 0;
+    static double marPos = 0;
+    static double phobosPos = 0;
+    static double deimosPos = 0;
+    static double jupPos = 0;
+    static double satPos = 0;
+    static double bumPos = 0;
+    static double nepPos = 0;
+    static double pluPos = 0;
+    //START TILT OF PLANETS
+    static double turnMerc = 0;
+    static double turnVen = 0;
+    static double turnEarth = 0;
+    static double turnMoon = 0;
+    static double turnMar = 0;
+    static double turnJup = 0;
+    static double turnSat = 0;
+    static double turnSatRing = 0;
+    static double turnBum = 0;
+    static double turnNep = 0;
+    static double turnPlu = 0;
+    //SPEED OF TURNING OF PLANET
+    static double mercTurn = 7.7;
+    static double venTurn = 14.35;
+    static double earthTurn = 37.5;
+    static double moonTurn = 3;
+    static double marTurn = 44;
+    static double jupTurn = 118;
+    static double satTurn = 120;
+    static double satRingTurn = 0.001;
+    static double bumTurn = 100;
+    static double nepTurn = 102.5;
+    static double pluTurn = 6.6;
+    //SPEED OF PLANET AROUND SUN
+    static double mercSpeed = 0.41;
+    static double venSpeed = 0.16;
+    static double earthSpeed = 0.1;
+    static double moonSpeed = 1.35;
+    static double marSpeed = 0.053;
+    static double phobosSpeed = 8;
+    static double deimosSpeed = 140;
+    static double jupSpeed = 0.0085;
+    static double satSpeed = 0.003;
+    static double bumSpeed = 0.0012;
+    static double nepSpeed = 0.0006;
+    static double pluSpeed = 0.0001;
+    //TILTS THE ORBIT
+    static double orbitTilt = 500;
+    static boolean upOrDown = true;
+
+    public static void main(String[] args) {
+
+        //runs the solar system method
+        solarSystem();
+        //Rimland, J. 2014. Adding audio to your Java applications. [Online] Available at< http://sites.psu.edu/jeffist/2014/12/06/playing-audio-in-java-applications/ >[Accessed 26th April 2018]
+
+        try {//J.P.L STUDIOS. 2016. Space Mountain Star Tunnel Music ~ 4 Hour Loop ~ Queue Soundtrack ~ EXTENDED LOOP. [Online Video] Available at< https://www.youtube.com/watch?v=a3GCDTJsO8g > [Accessed 26th April 2018]
+            AudioInputStream space = AudioSystem.getAudioInputStream(new File("F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\spaceSound.wav"));
+
+            Clip clip = AudioSystem.getClip();
+            clip.open(space);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //a loop that is repeated continuously to run the different planet methods
+        //continuously looks for keyboard controls to change camera angle
+        //draws and clears all methods every millisecond
+        while (true) {
+            sun(690);
+            merc(890.9, 96);
+            ven(1290, 48);
+            earth(1739, 50.4, 90.9, 16);
+            mars(2198, 27.2, 67.2, 3, 47.5, 4);
+            jupiter(2668.5, 278);
+            saturn(3619, 232.8);
+            uranus(4561, 232.8);
+            neptune(5198, 90);
+            pluto(5500, 16);
+            controls();
+            StdDraw3D.show(1);
+            StdDraw3D.clear();
+        }
+    }
+
+    //sets all general settings for the solar system
+    public static void solarSystem() {
+        //sets canvas size
+        StdDraw3D.setCanvasSize(1080, 1080);
+        //sets a scale
+        StdDraw3D.setScale(-4500, 4500);
+        //clears all default light in the solar system
+        StdDraw3D.clearLight();
+        //adds a light that comes from the sun and hits all planets
+        StdDraw3D.pointLight(0, 0, 0, Color.white);
+        //sets a background to the universe that changes when the user moves the camera
+        StdDraw3D.setBackgroundSphere("F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Background.jpg");
+    }
+
+    //holds the controls for all 
+    public static void controls() {
+        if (isKeyPressed('1')) {
+            StdDraw3D.setCamera(8000, 0, 0, 90, 0, 90);
+        } else if (isKeyPressed('2')) {
+            StdDraw3D.setCamera(690, 0, 0, 270, 0, 90);
+        } else if (isKeyPressed('3')) {
+            StdDraw3D.setCamera(8000, 2000, 2000, 70, 0, 110);
+        } else if (isKeyPressed('4')) {
+            StdDraw3D.setCamera(-8000, 3000, -2000, 105, 0, 250);
+        } else if (isKeyPressed('5')) {
+            StdDraw3D.setCamera(0, -8000, 0, 90, 0, 0);
+        } else if (isKeyPressed('0')) {
+            StdDraw3D.setCamera(0, 0, 15363.961, 0, 0, 0);
+        }
+        //turns an ambient light on to make it easier to see the planets
+        if (isKeyPressed('L')) {
+            //clears all default light in the solar system
+            StdDraw3D.clearLight();
+            //adds a light that comes from the sun and hits all planets
+            StdDraw3D.ambientLight(Color.white);
+            //turns the ambient light off so that a more realistic light system occurs
+        } else if (isKeyPressed('O')) {
+            //clears all default light in the solar system
+            StdDraw3D.clearLight();
+            //adds a light that comes from the sun and hits all planets
+            StdDraw3D.pointLight(0, 0, 0, Color.white);
+        }
+
+        if (isKeyPressed('T')) {
+            try {
+                //File found on the scratch drive from university in the 'sources' folder
+                //worked with Matthew Mayson on this
+                AudioInputStream DonaldTrumpet = AudioSystem.getAudioInputStream(new File("F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Trumpet.wav"));
+
+                Clip clip = AudioSystem.getClip();
+                clip.open(DonaldTrumpet);
+                clip.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //writes text at the top of the program to give users instructions
+        //Me and Nathan Thomas came up with the idea of having overlay text on the program, wrote the code seperately
+        StdDraw3D.overlayText(0, 4000, "Press numbers 1 - 5 to show different displays,");
+        StdDraw3D.overlayText(0, 3800, "then press 0 to return to original view");
+        StdDraw3D.overlayText(0, 3600, "Press the letter L to turn lights on, then O to turn them off again");
+    }
+
+    //this method controls the sun
+    public static void sun(double sunRad) {
+        //the sun is placed in the centre 
+        //planetpixelemporium.com, 2018. sun texture map [Online] Available at< http://planetpixelemporium.com/sun.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(0, 0, 0, sunRad, 90, 0, 180, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Sun.jpg");
+    }
+
+    //this method controls mercury
+    public static void merc(double mercRad, double mercSize) {
+        //chooses the next position of mercury along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double mercX = (50 + mercRad * Math.cos(circle + mercPos));
+        //chooses the next position of mercury along the y axis according to its current position and the radius of the circle variable
+        double mercY = (mercRad * Math.sin(circle + mercPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for mercury
+        //planetpixelemporium.com, 2018. mercury texture map [Online] Available at< http://planetpixelemporium.com/mercury.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(mercX, mercY, 0, mercSize, 90, 180, turnMerc, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Mercury.jpg");
+        //moves the position of mercury based on the speed set by mercspeed variable
+        mercPos = mercPos + mercSpeed;
+        //turns the planet the speed set by mercturn variable
+        turnMerc = turnMerc + mercTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnMerc > 359) {
+            turnMerc = 0;
+        }
+    }
+
+    //this method controls Venus
+    public static void ven(double venRad, double venSize) {
+        //chooses the next position of venus along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double venX = (50 + venRad * Math.cos(circle + venPos));
+        //chooses the next position of venus along the y axis according to its current position and the radius of the circle variable
+        double venY = (venRad * Math.sin(circle + venPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for Venus
+        //planetpixelemporium.com, 2018. venus texture map [Online] Available at< http://planetpixelemporium.com/venus.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(venX, venY, 0, venSize, 90, 180, turnVen, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Venus.jpg");
+        //moves the position of venus based on the speed set by venspeed variable
+        venPos = venPos + venSpeed;
+        //turns the planet the speed set by venturn variable
+        //the tilt is minused here because the planet spins clockwise unlike most of the other planets
+        turnVen = turnVen - venTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnVen > 359) {
+            turnVen = 0;
+        }
+    }
+
+    //this method controls Earth and its moon
+    public static void earth(double earthRad, double earthSize, double moonRad, double moonSize) {
+        //chooses the next position of earth along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double earthX = (50 + earthRad * Math.cos(circle + earthPos));
+        //chooses the next position of earth along the y axis according to its current position and the radius of the circle variable
+        double earthY = (earthRad * Math.sin(circle + earthPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for Earth
+        //planetpixelemporium.com, 2018. earth texture map [Online] Available at < http://planetpixelemporium.com/earth.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(earthX, earthY, 0, earthSize, 90, 180, turnEarth, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Earth.jpg");
+        //moves the position of the earth based on the speed set by earthspeed variable
+        earthPos = earthPos + earthSpeed;
+        //turns the planet the speed set by earthturn variable
+        turnEarth = turnEarth + earthTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnEarth > 359) {
+            turnEarth = 0;
+        }
+        //chooses the next position of the moon along the x axis according to its current position, the current position of earth and the radius of the circle variable
+        double moonX = (earthX + moonRad * Math.cos(circle + moonPos));
+        //chooses the next position of the moon along the y axis according to its current position, the current position of earth and the radius of the circle variable
+        double moonY = (earthY + moonRad * Math.sin(circle + moonPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for the moon
+        StdDraw3D.sphere(moonX, moonY, 0, moonSize, 90, 180, turnMoon, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Moon.jpg");
+        //moves the position of the moon based on the speed set by moonspeed variable
+        moonPos = moonPos + moonSpeed;
+        //turns the moon the speed set by moonturn variable
+        turnMoon = turnMoon + moonTurn;
+        //stops the turning of the moon from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnMoon > 359) {
+            turnMoon = 0;
+        }
+    }
+
+    //this method controls mars and its moons
+    public static void mars(double marRad, double marSize, double deimosRad, double deimosSize, double phobosRad, double phobosSize) {
+        //chooses the next position of mars along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double marX = (50 + marRad * Math.cos(circle + marPos));
+        //chooses the next position of mars along the y axis according to its current position and the radius of the circle variable
+        double marY = (marRad * Math.sin(circle + marPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for mars
+        //planetpixelemporium.com, 2018. mars texture map [Online] Available at< http://planetpixelemporium.com/mars.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(marX, marY, 0, marSize, 90, 180, turnMar, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Mars.jpg");
+        //moves the position of mars based on the speed set by marspeed variable
+        marPos = marPos + marSpeed;
+        //turns the planet the speed set by marturn variable
+        turnMar = turnMar + marTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnMar > 359) {
+            turnMar = 0;
+        }
+        //phobos
+        //chooses the next position of phobos along the x axis according to its current position, the current position of mars and the radius of the circle variable
+        double phobosX = (marX + phobosRad * Math.cos(circle + phobosPos));
+        //chooses the next position of phobos along the y axis according to its current position, the current position of mars and the radius of the circle variable
+        double phobosY = (marY + phobosRad * Math.sin(circle + phobosPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for phobos
+        StdDraw3D.sphere(phobosX, phobosY, 0, phobosSize, 90, 180, turnMoon, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Phobos.jpg");
+        //moves the position of phobos based on the speed set by phobosspeed variable
+        phobosPos = phobosPos - phobosSpeed;
+        //turns phobos the speed set by moonturn variable
+        turnMoon = turnMoon + moonTurn;
+        //stops the turning of the moon from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnMoon > 359) {
+            turnMoon = 0;
+        }
+        //deimos
+        //chooses the next position of deimos along the x axis according to its current position, the current position of mars and the radius of the circle variable
+        double deimosX = (marX + deimosRad * Math.cos(circle + deimosPos));
+        //chooses the next position of deimos along the y axis according to its current position, the current position of mars and the radius of the circle variable
+        double deimosY = (marY + deimosRad * Math.sin(circle + deimosPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for deimos
+        StdDraw3D.sphere(deimosX, deimosY, 0, deimosSize, 90, 180, turnMoon, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Deimos.jpg");
+        //moves the position of deimos based on the speed set by deimosspeed variable
+        deimosPos = deimosPos + deimosSpeed;
+        //turns deimos the speed set by moonturn variable
+        turnMoon = turnMoon + moonTurn;
+        //stops the turning of the moon from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnMoon > 359) {
+            turnMoon = 0;
+        }
+    }
+
+    //this method controls jupiter
+    public static void jupiter(double jupRad, double jupSize) {
+        //chooses the next position of jupiter along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double jupX = (50 + jupRad * Math.cos(circle + jupPos));
+        //chooses the next position of jupiter along the y axis according to its current position and the radius of the circle variable
+        double jupY = (jupRad * Math.sin(circle + jupPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for jupiter
+        //planetpixelemporium.com, 2018. jupiter texture map [Online] Available at< http://planetpixelemporium.com/jupiter.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(jupX, jupY, 0, jupSize, 90, 180, turnJup, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Jupiter.jpg");
+        //moves the position of jupiter based on the speed set by jupspeed variable
+        jupPos = jupPos + jupSpeed;
+        //turns the planet the speed set by jupturn variable
+        turnJup = turnJup + jupTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnJup > 359) {
+            turnJup = 0;
+        }
+    }
+
+    //this method controls saturn
+    public static void saturn(double satRad, double satSize) {
+        //chooses the next position of saturn along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double satX = (50 + satRad * Math.cos(circle + satPos));
+        //chooses the next position of saturn along the y axis according to its current position and the radius of the circle variable
+        double satY = (satRad * Math.sin(circle + satPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for saturn
+        //planetpixelemporium.com, 2018. saturn texture map [Online] Available at< http://planetpixelemporium.com/saturn.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(satX, satY, 0, satSize, 90, 180, turnSat, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Saturn.jpg");
+        satPos = satPos + satSpeed;
+        //This draws a cylinder on the x, y and z coordinates of mercury and sets the correct spin speed and tilt created for the rings
+        //Alpha-Element, 2014. Stock Image - Saturn Rings. [Online] Available at< https://alpha-element.deviantart.com/art/Stock-Image-Saturn-Rings-393767006 > [accessed 4th May 2018]
+        StdDraw3D.cylinder(satX, satY, 0, satSize + 150, 1, 90, 160, turnSatRing, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\SaturnRing.jpg");
+        //moves the position of saturn based on the speed set by satspeed variable
+        turnSat = turnSat + satTurn;
+        //turns the planet the speed set by satturn variable
+        turnSatRing = turnSatRing + satRingTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnSat > 359) {
+            turnSat = 0;
+        }
+    }
+
+    //this method controls uranus
+    public static void uranus(double bumRad, double bumSize) {
+        //chooses the next position of uranus along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double bumX = (50 + bumRad * Math.cos(circle + bumPos));
+        //chooses the next position of uranus along the y axis according to its current position and the radius of the circle variable
+        double bumY = (bumRad * Math.sin(circle + bumPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for uranus
+        //planetpixelemporium.com, 2018. uranus texture map [Online] Available at< http://planetpixelemporium.com/uranus.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(bumX, bumY, 0, bumSize, 90, 180, turnBum, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Uranus.jpg");
+        //moves the position of uranus based on the speed set by bumspeed variable
+        bumPos = bumPos + bumSpeed;
+        //the tilt is minused here because the planet spins clockwise unlike most of the other planets
+        //turns the planet the speed set by bumturn variable
+        turnBum = turnBum - bumTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnBum > 359) {
+            turnBum = 0;
+        }
+    }
+
+    //this method controls neptune
+    public static void neptune(double nepRad, double nepSize) {
+        //chooses the next position of neptune along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double nepX = (50 + nepRad * Math.cos(circle + nepPos));
+        //chooses the next position of neptune along the y axis according to its current position and the radius of the circle variable
+        double nepY = (nepRad * Math.sin(circle + nepPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for neptune
+        //planetpixelemporium.com, 2018. neptune texture map [Online] Available at< http://planetpixelemporium.com/neptune.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(nepX, nepY, 0, nepSize, 90, 180, turnNep, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Neptune.jpg");
+        //moves the position of neptune based on the speed set by nepspeed variable
+        nepPos = nepPos + nepSpeed;
+        //turns the planet the speed set by nepturn variable
+        turnNep = turnNep + nepTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnNep > 359) {
+            turnNep = 0;
+        }
+    }
+
+    //this method controls pluto
+    public static void pluto(double pluRad, double pluSize) {
+        //below code gives pluto a tilted orbit so it is not straight with the rest of the planets
+        //if the planet moves lower or higher than the correct orbit, then a boolean will change false or true respectively
+        //Worked with Nathan Thomas on this
+        if (orbitTilt >= 2000) {
+            upOrDown = true;
+        } else if (orbitTilt <= -2000) {
+            upOrDown = false;
+        }
+        //if the boolean is false then pluto will move upwards
+        if (upOrDown == false) {
+            orbitTilt = orbitTilt + 0.25;
+            //if the boolean is true then pluto will move down
+        } else if (upOrDown == true) {
+            orbitTilt = orbitTilt - 0.25;
+        }
+        //chooses the next position of pluto along the x axis according to its current position and the radius of the circle variable
+        //adding 50 at the beginning makes the orbit slightly elliptical
+        double pluX = (50 + pluRad * Math.cos(circle + pluPos));
+        //chooses the next position of pluto along the y axis according to its current position and the radius of the circle variable
+        double pluY = (pluRad * Math.sin(circle + pluPos));
+        //This draws a sphere on the x, y and z coordinates and correct spin speed created for pluto
+        //planetpixelemporium.com, 2018. pluto texture map [Online] Available at< http://planetpixelemporium.com/pluto.html > [accessed 23rd March 2018]
+        StdDraw3D.sphere(pluX, pluY, orbitTilt, pluSize, 90, 180, turnPlu, "F:\\Year 2\\Semester 2\\Graphics\\Cw2\\NewSolarSystem\\Textures\\Pluto.jpg");
+        //moves the position of pluto based on the speed set by pluspeed variable
+        pluPos = pluPos + pluSpeed;
+        //turns the planet the speed set by pluturn variable
+        turnPlu = turnPlu + pluTurn;
+        //stops the turning of the planet from getting to high and breaking the program by setting it back to 0 when it gets too high
+        if (turnPlu > 359) {
+            turnPlu = 0;
+        }
+    }
+}
